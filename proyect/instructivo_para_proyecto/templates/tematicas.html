@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ temat }}
+{% endblock %}
+
+{% block main %}
+
+
+
+<h1>{{ temat }}<br></h1>
+{% for cosas in concept %}
+    <h4 class="maint"><b>Concepto:</b><br></h4>
+    <p class="corpe">{{ cosas.concepto }}</p>
+{% endfor %}
+
+
+<h2 class="maint2"><br><br><br>Proyectos de {{ temat }}:</h2>
+
+<!-- Falta el for -->
+{% for datos in rows %}
+    <div>
+
+
+
+
+    <h4 class="maint"> <b><br>Nombre: </b><i>{{ datos.titulo }}<br></i><br></h4>
+    <p class="corpe"><b>En que consiste?<br></b>{{ datos.cuerpo }}<br></p>
+    <h4 class="ti_tools">Herramientas utilizadas: <br></h4>
+    <p class="corpe2">{{ datos.herramientas_pro }}</p>
+
+    {% for rows in rowsaut %}
+        {% if datos.id == rows.id %}
+            <p class="copyR">Publicado por: {{ rows.username }}</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+    <div id="comenti" align="left" class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+          COMENTARIOS
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li>
+                {% for com in selectc %}
+                <div class="comentario">
+                    {% if datos.id == com.id_post %}
+                        {% if not com.id %}
+                                <p>Aun no hay comentarios...</p>
+                            {% else %}
+                                <p>{{ com.txt_coment }} <i><b>by: {{ com.username }}</b></i></p>
+                        {% endif %}
+                    {% endif %}
+                    </div>
+                {% endfor %}</li>
+          </ul>
+      </div>
+    <form action="/tematicas/{{ temat }}/" method="post" id="form">
+    <div class="comentariodiv">
+        <input id="comentario" class="form-control mx-auto w-auto" name="comentario" placeholder="Comenta aquí" type="text">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="{{ datos.id }}" id="flexCheckChecked" name="flexCheckChecked" checked>
+            <label class="form-check-label" for="flexCheckChecked">
+              ¿Seguro de subir tu comentario?
+            </label>
+          </div>
+        <button class="btn btn-primary" type="submit">Comentar</button>
+
+    </div>
+    </form>
+{% endfor %}
+
+
+
+
+        <!-- <h1> {{ titulot }}</h1>
+
+    <h2> {{ titlep }} </h2>
+
+    <p> {{ cuerpo }} </p>
+
+    <p> Autor: {{ autor }} </p> -->
+
+{% endblock %}

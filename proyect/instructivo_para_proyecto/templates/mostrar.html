@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    RESULTADOS
+{% endblock %}
+
+{% block main %}
+
+    <h2> TUS RESULTADOS SON :</h2>
+    <h3><input class="botn1" type="button" onclick="history.back()" name="Regresar" value="Regresar"></h3>
+
+    <ul>
+        <li>Programación Web: {{ resultados.Programacion_web }}% <br><a href="/tematicas/Programacion_web"><img src="/static/Web.png" width="200" height="180" alt=""></a></li>
+        <li>Programación Estructurada: {{ resultados.Programacion_estructurada }}% <br><a href="/tematicas/Programacion_estructurada"><img src="/static/Estructurada.png" width="200" height="180" alt=""></a></li>
+        <li>Electronica: {{ resultados.Electronica }}% <br><a href="/tematicas/Electronica"><img src="/static/Electronica.jpg" width="200" height="180" alt=""></a></li>
+    </ul>
+
+{% endblock %}

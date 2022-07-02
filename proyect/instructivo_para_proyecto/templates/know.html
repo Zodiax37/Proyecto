@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Ayuda Dinámica
+{% endblock %}
+
+{% block main %}
+<h2 class="a">¿No sabes ni por dónde empezar?</h2>
+<h3 class="nos">Nosotros tampoco</h3>
+<p>Es muy común que durante tu proceso para la realización de tus proyectos necesites tomar ideas.
+  Pero hay situaciones en la que puedes no tener ni la minima idea de lo que podrías hacer</p>
+<form action="/know" method="post">
+  <div>
+    <h2>¿Qué carrera estudia o estudió?</h2>
+    {% for i in pregunta1 %}
+    <!-- aqui comienza -->
+    <div class="form-check">
+      <input value="{{ pregunta1[i] }}" class="form-check-input" type="radio" name="pregunta1" id="pregunta1">
+      <label class="form-check-label" for="flexRadioDefault1">
+        {{ i }}
+      </label>
+    </div>
+
+  </div>
+  {% endfor %}
+  <!-- aqui termina -->
+
+  <div>
+    <h2>Lenguaje de programación con el cuál te sientes más cómodo</h2>
+    {% for i in pregunta2 %}
+    <!-- aqui comienza -->
+    <div class="form-check">
+      <input value="{{ pregunta2[i] }}" class="form-check-input" type="radio" name="pregunta2" id="pregunta2">
+      <label class="form-check-label" for="flexRadioDefault1">
+        {{ i }}
+      </label>
+    </div>
+
+  </div>
+  {% endfor %}
+  </div>
+
+
+  <div>
+
+    <h2>Tienes preferencias por:</h2>
+    {% for i in pregunta3 %}
+    <!-- aqui comienza -->
+    <div class="form-check">
+      <input value="{{ pregunta3[i] }}" class="form-check-input" type="radio" name="pregunta3" id="pregunta3">
+      <label class="form-check-label" for="flexRadioDefault1">
+        {{ i }}
+      </label>
+    </div>
+
+  </div>
+  {% endfor %}
+  <div>
+
+    <h2>Selecciona uno de estos pasatiempos más cercanos a tu personalidad:</h2>
+
+    {% for i in pregunta4 %}
+    <!-- aqui comienza -->
+    <div class="form-check">
+      <input value="{{ pregunta4[i] }}" class="form-check-input" type="radio" name="pregunta4" id="pregunta4">
+      <label class="form-check-label" for="flexRadioDefault1">
+        {{ i }}
+      </label>
+    </div>
+
+  </div>
+  {% endfor %}
+
+
+  <div>
+    <h2>¿En que piensas con la palabra programación?</h2>
+
+    {% for i in pregunta5 %}
+    <!-- aqui comienza -->
+    <div class="form-check">
+      <input value="{{ pregunta5[i] }}" class="form-check-input" type="radio" name="pregunta5" id="pregunta5">
+      <label class="form-check-label" for="flexRadioDefault1">
+        {{ i }}
+      </label>
+    </div>
+    {% endfor %}
+
+  </div>
+
+
+
+  </div>
+  <button class="btn btn-primary" type="submit">Comentar</button>
+  </div>
+</form>
+
+
+{% endblock %}

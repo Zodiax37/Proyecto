@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Publicar
+{% endblock %}
+
+{% block main %}
+<form action="/publicar" method="post">
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" autofocus id="titulo" name="titulo" placeholder="Titulo" type="text">
+    </div>
+
+    <div class="mb-3">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="proyecto" name="proyecto" placeholder="Explica el proyecto" type="text">
+    </div>
+
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" id="herramientas" name="herramientas" placeholder="herramientas" type="text">
+    </div>
+
+    <div class="mb-3">
+        <select class="form-select" name="tipo" aria-label="Default select example">
+            <option selected>Tipo de proyecto</option>
+            <option value="Electronica">Electronica</option>
+            <option value="Programacion_web">Programación Web</option>
+            <!-- <option value="">Programacion Estructurada</option> -->
+          </select>
+    </div>
+    <button class="btn btn-primary" type="submit">Publicar</button>
+</form>
+{% endblock %}

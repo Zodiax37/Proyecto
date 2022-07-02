@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Registro
+{% endblock %}
+
+{% block main %}
+    <form action="/registrarp" method="post">
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" autofocus id="correo" name="correo" placeholder="Correo Electronico" type="text">
+        </div>
+
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="usuario" name="usuario" placeholder="Usuario" type="text">
+        </div>
+
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="contraseña" name="contraseña" placeholder="Contraseña" type="password">
+        </div>
+
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="contraseña2" name="confirmacion" placeholder="Confirme Contraseña" type="password">
+        </div>
+
+        <button class="btn btn-primary" type="submit">Registrar</button>
+    </form>
+{% endblock %}
